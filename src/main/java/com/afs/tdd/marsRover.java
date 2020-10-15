@@ -31,13 +31,13 @@ public class marsRover {
     }
 
     private void turnRight() {
-        if(direction == 'N'){
+        if (direction == 'N') {
             direction = 'E';
         }
     }
 
     private void turnLeft() {
-        if(direction == 'N'){
+        if (direction == 'N') {
             direction = 'W';
         }
     }
@@ -45,6 +45,9 @@ public class marsRover {
     private void moveRover() {
         if (direction == 'N') {
             coordY += 1;
+        }
+        if (direction == 'S') {
+            coordY -= 1;
         }
     }
 
