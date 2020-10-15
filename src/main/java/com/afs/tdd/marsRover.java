@@ -55,31 +55,36 @@ public class marsRover {
     }
 
     private void turnLeft() {
-        switch(direction){
-            case 'N' :
+        switch (direction) {
+            case 'N':
                 direction = 'W';
                 break;
-            case 'S' :
+            case 'S':
                 direction = 'E';
                 break;
-            case 'E' :
+            case 'E':
                 direction = 'N';
                 break;
-            case 'W' :
+            case 'W':
                 direction = 'S';
                 break;
         }
     }
 
     private void moveRover() {
-        if (direction == 'N') {
-            coordY += 1;
-        } else if (direction == 'S') {
-            coordY -= 1;
-        } else if (direction == 'E') {
-            coordX += 1;
-        } else if (direction == 'W') {
-            coordX -= 1;
+        switch (direction) {
+            case 'N':
+                coordY += 1;
+                break;
+            case 'S':
+                coordY -= 1;
+                break;
+            case 'E':
+                coordX += 1;
+                break;
+            case 'W':
+                coordX -= 1;
+                break;
         }
     }
 
