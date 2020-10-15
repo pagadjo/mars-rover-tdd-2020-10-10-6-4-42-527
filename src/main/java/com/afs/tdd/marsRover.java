@@ -34,6 +34,9 @@ public class marsRover {
         if (direction == 'N') {
             direction = 'E';
         }
+        if (direction == 'S') {
+            direction = 'W';
+        }
     }
 
     private void turnLeft() {
