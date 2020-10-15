@@ -55,6 +55,9 @@ public class marsRover {
         if (direction == 'S') {
             coordY -= 1;
         }
+        if (direction == 'E') {
+            coordX += 1;
+        }
     }
 
     public int coordinateX() {
