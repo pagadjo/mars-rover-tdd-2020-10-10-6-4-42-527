@@ -34,13 +34,13 @@ public class marsRover {
         if (direction == 'N') {
             direction = 'E';
         }
-        if (direction == 'S') {
+        else if (direction == 'S') {
             direction = 'W';
         }
-        if (direction == 'E') {
+        else if (direction == 'E') {
             direction = 'S';
         }
-        if (direction == 'W') {
+        else if (direction == 'W') {
             direction = 'N';
         }
     }
@@ -49,28 +49,29 @@ public class marsRover {
         if (direction == 'N') {
             direction = 'W';
         }
-        if (direction == 'S') {
+        else if (direction == 'S') {
             direction = 'E';
         }
-        if (direction == 'E') {
+        else if (direction == 'E') {
             direction = 'N';
         }
-        if (direction == 'W') {
+        else if (direction == 'W') {
             direction = 'S';
         }
+
     }
 
     private void moveRover() {
         if (direction == 'N') {
             coordY += 1;
         }
-        if (direction == 'S') {
+        else if (direction == 'S') {
             coordY -= 1;
         }
-        if (direction == 'E') {
+        else if (direction == 'E') {
             coordX += 1;
         }
-        if (direction == 'W') {
+        else if (direction == 'W') {
             coordX -= 1;
         }
     }
