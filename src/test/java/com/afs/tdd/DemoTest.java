@@ -1,10 +1,22 @@
 package com.afs.tdd;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class DemoTest {
+
+    @Test
+    void should_return_CommandNotDefinedException_when_given_x_0_y_0_dir_N_move_F() {
+        //given
+        marsRover marsRover = new marsRover(0, 0, 'N');
+        //when
+        //then
+        assertThrows(CommandNotDefinedException.class, () -> marsRover.validateCommand("A"));
+    }
+
     @Test
     void should_return_x_0_y_1_dir_N_when_given_x_0_y_0_dir_N_move_M() {
         //given
@@ -160,4 +172,5 @@ class DemoTest {
         assertEquals(1, marsRover.coordinateY());
         assertEquals('N', marsRover.getDirection());
     }
+
 }
