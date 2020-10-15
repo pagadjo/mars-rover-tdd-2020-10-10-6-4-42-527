@@ -55,16 +55,20 @@ public class marsRover {
     }
 
     private void turnLeft() {
-        if (direction == 'N') {
-            direction = 'W';
-        } else if (direction == 'S') {
-            direction = 'E';
-        } else if (direction == 'E') {
-            direction = 'N';
-        } else if (direction == 'W') {
-            direction = 'S';
+        switch(direction){
+            case 'N' :
+                direction = 'W';
+                break;
+            case 'S' :
+                direction = 'E';
+                break;
+            case 'E' :
+                direction = 'N';
+                break;
+            case 'W' :
+                direction = 'S';
+                break;
         }
-
     }
 
     private void moveRover() {
