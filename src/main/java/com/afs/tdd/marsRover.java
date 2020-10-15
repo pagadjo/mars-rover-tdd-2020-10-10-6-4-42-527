@@ -14,11 +14,11 @@ public class marsRover {
         this.direction = direction;
     }
 
-    public void executeMovement(String movement) {
-        Arrays.asList(movement.split("")).forEach(moves -> this.execMove(moves));
+    public void executeMovementMany(String movementMany) {
+        Arrays.asList(movementMany.split("")).forEach(moves -> this.execCommand(moves));
     }
 
-    private void execMove(String moves) {
+    public void execCommand(String moves) {
         if (moves.equals("M")) {
             moveRover();
         }
@@ -87,4 +87,5 @@ public class marsRover {
     public char getDirection() {
         return direction;
     }
+
 }
