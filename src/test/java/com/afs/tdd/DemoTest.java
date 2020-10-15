@@ -148,4 +148,16 @@ class DemoTest {
         assertEquals(0, marsRover.coordinateY());
         assertEquals('N', marsRover.getDirection());
     }
+
+    @Test
+    void should_return_x_negative_1_y_1_dir_N_when_given_x_0_y_0_dir_N_move_MLMR() {
+        //given
+        marsRover marsRover = new marsRover(0, 0, 'N');
+        //when
+        marsRover.execCommandsMany("MLMR");
+        //then
+        assertEquals(-1, marsRover.coordinateX());
+        assertEquals(1, marsRover.coordinateY());
+        assertEquals('N', marsRover.getDirection());
+    }
 }
