@@ -64,4 +64,16 @@ class DemoTest {
         assertEquals(0, marsRover.coordinateY());
         assertEquals('E', marsRover.getDirection());
     }
+
+    @Test
+    void should_return_x_0_y_0_dir_W_when_given_x_0_y_0_dir_S_move_R() {
+        //given
+        marsRover marsRover = new marsRover(0, 0, 'S');
+        //when
+        marsRover.executeMovement("R");
+        //then
+        assertEquals(0, marsRover.coordinateX());
+        assertEquals(0, marsRover.coordinateY());
+        assertEquals('W', marsRover.getDirection());
+    }
 }
