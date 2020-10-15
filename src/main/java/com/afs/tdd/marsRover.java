@@ -2,6 +2,8 @@ package com.afs.tdd;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class marsRover {
 
@@ -20,8 +22,14 @@ public class marsRover {
     }
 
     public void validateCommand(String validCommand) throws CommandNotDefinedException {
-        if (!validCommand.contains("M") && !validCommand.contains("R") && !validCommand.contains("L")) {
-            throw new CommandNotDefinedException("Not a valid Command");
+        List<String> inputCommands = Arrays.asList(validCommand.split(""));
+        List<String> validCommands = Arrays.asList(("MLR").split(""));
+
+        for (int x = 0; x < inputCommands.size(); x++) {
+            if (!(validCommands.contains(inputCommands.get(x)))) {
+                System.out.println(inputCommands.get(x));
+                throw new CommandNotDefinedException("Not a valid Command");
+            }
         }
     }
 
