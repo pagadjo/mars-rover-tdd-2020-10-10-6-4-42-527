@@ -42,7 +42,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_negative_1_dir_S_when_given_x_0_y_0_dir_S_move_M() {
+     void should_return_x_0_y_negative_1_dir_S_when_given_x_0_y_0_dir_S_move_M() {
         //given
         marsRover marsRover = new marsRover(0, 0, 'S');
         //when
@@ -51,5 +51,17 @@ class DemoTest {
         assertEquals(0, marsRover.coordinateX());
         assertEquals(-1, marsRover.coordinateY());
         assertEquals('S', marsRover.getDirection());
+    }
+
+    @Test
+    void should_return_x_0_y_0_dir_E_when_given_x_0_y_0_dir_S_move_L() {
+        //given
+        marsRover marsRover = new marsRover(0, 0, 'S');
+        //when
+        marsRover.executeMovement("L");
+        //then
+        assertEquals(0, marsRover.coordinateX());
+        assertEquals(0, marsRover.coordinateY());
+        assertEquals('E', marsRover.getDirection());
     }
 }
