@@ -90,7 +90,7 @@ class DemoTest {
     }
 
     @Test
-    void should_return_x_0_y_0_dir_E_when_given_x_0_y_0_dir_N_move_L() {
+    void should_return_x_0_y_0_dir_N_when_given_x_0_y_0_dir_E_move_L() {
         //given
         marsRover marsRover = new marsRover(0, 0, 'E');
         //when
