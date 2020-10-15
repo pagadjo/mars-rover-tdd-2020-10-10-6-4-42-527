@@ -14,7 +14,7 @@ class DemoTest {
         marsRover marsRover = new marsRover(0, 0, 'N');
         //when
         //then
-        assertThrows(CommandNotDefinedException.class, () -> marsRover.validateCommand("A"));
+        assertThrows(CommandNotDefinedException.class, () -> marsRover.validateCommand("ABC"));
     }
 
     @Test
