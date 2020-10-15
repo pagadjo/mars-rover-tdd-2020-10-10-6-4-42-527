@@ -1,5 +1,6 @@
 package com.afs.tdd;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class marsRover {
@@ -15,7 +16,13 @@ public class marsRover {
     }
 
     public void execCommandsMany(String movementMany) {
-        Arrays.asList(movementMany.split("")).forEach(moves -> this.execCommand(moves));
+        Arrays.asList(movementMany.split("")).forEach(this::execCommand);
+    }
+
+    public void validateCommand(String validCommand) throws CommandNotDefinedException {
+        if (!validCommand.contains("M") && !validCommand.contains("R") && !validCommand.contains("L")) {
+            throw new CommandNotDefinedException("Not a valid Command");
+        }
     }
 
     public void execCommand(String moves) {
@@ -33,14 +40,11 @@ public class marsRover {
     private void turnRight() {
         if (direction == 'N') {
             direction = 'E';
-        }
-        else if (direction == 'S') {
+        } else if (direction == 'S') {
             direction = 'W';
-        }
-        else if (direction == 'E') {
+        } else if (direction == 'E') {
             direction = 'S';
-        }
-        else if (direction == 'W') {
+        } else if (direction == 'W') {
             direction = 'N';
         }
     }
@@ -48,14 +52,11 @@ public class marsRover {
     private void turnLeft() {
         if (direction == 'N') {
             direction = 'W';
-        }
-        else if (direction == 'S') {
+        } else if (direction == 'S') {
             direction = 'E';
-        }
-        else if (direction == 'E') {
+        } else if (direction == 'E') {
             direction = 'N';
-        }
-        else if (direction == 'W') {
+        } else if (direction == 'W') {
             direction = 'S';
         }
 
@@ -64,14 +65,11 @@ public class marsRover {
     private void moveRover() {
         if (direction == 'N') {
             coordY += 1;
-        }
-        else if (direction == 'S') {
+        } else if (direction == 'S') {
             coordY -= 1;
-        }
-        else if (direction == 'E') {
+        } else if (direction == 'E') {
             coordX += 1;
-        }
-        else if (direction == 'W') {
+        } else if (direction == 'W') {
             coordX -= 1;
         }
     }
