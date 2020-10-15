@@ -52,6 +52,9 @@ public class marsRover {
         if (direction == 'E') {
             direction = 'N';
         }
+        if (direction == 'W') {
+            direction = 'S';
+        }
     }
 
     private void moveRover() {
