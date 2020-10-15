@@ -14,7 +14,7 @@ public class marsRover {
         this.direction = direction;
     }
 
-    public void executeMovementMany(String movementMany) {
+    public void execCommandsMany(String movementMany) {
         Arrays.asList(movementMany.split("")).forEach(moves -> this.execCommand(moves));
     }
 
