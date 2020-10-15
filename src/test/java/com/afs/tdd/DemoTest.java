@@ -10,7 +10,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'N');
         //when
-        marsRover.executeMovement("M");
+        marsRover.execCommand("M");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(1, marsRover.coordinateY());
@@ -22,7 +22,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'N');
         //when
-        marsRover.executeMovement("L");
+        marsRover.execCommand("L");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -34,7 +34,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'N');
         //when
-        marsRover.executeMovement("R");
+        marsRover.execCommand("R");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -46,7 +46,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'S');
         //when
-        marsRover.executeMovement("M");
+        marsRover.execCommand("M");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(-1, marsRover.coordinateY());
@@ -58,7 +58,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'S');
         //when
-        marsRover.executeMovement("L");
+        marsRover.execCommand("L");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -70,7 +70,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'S');
         //when
-        marsRover.executeMovement("R");
+        marsRover.execCommand("R");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -82,7 +82,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'E');
         //when
-        marsRover.executeMovement("M");
+        marsRover.execCommand("M");
         //then
         assertEquals(1, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -94,7 +94,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'E');
         //when
-        marsRover.executeMovement("L");
+        marsRover.execCommand("L");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -106,7 +106,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'E');
         //when
-        marsRover.executeMovement("R");
+        marsRover.execCommand("R");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -118,7 +118,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'W');
         //when
-        marsRover.executeMovement("M");
+        marsRover.execCommand("M");
         //then
         assertEquals(-1, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -130,7 +130,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'W');
         //when
-        marsRover.executeMovement("L");
+        marsRover.execCommand("L");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
@@ -142,7 +142,7 @@ class DemoTest {
         //given
         marsRover marsRover = new marsRover(0, 0, 'W');
         //when
-        marsRover.executeMovement("R");
+        marsRover.execCommand("R");
         //then
         assertEquals(0, marsRover.coordinateX());
         assertEquals(0, marsRover.coordinateY());
