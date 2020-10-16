@@ -1,12 +1,16 @@
 package com.afs.tdd;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class marsRover {
-
+    private static final String MOVE_COMMAND = "M";
+    private static final String TURN_LEFT_COMMAND = "L";
+    private static final String TURN_RIGHT_COMMAND = "R";
+    private final char NORTH = 'N';
+    private final char SOUTH = 'S';
+    private final char EAST = 'E';
+    private final char WEST = 'W';
     private int coordX;
     private int coordY;
     private char direction;
@@ -17,81 +21,81 @@ public class marsRover {
         this.direction = direction;
     }
 
-    public void execCommandsMany(String movementMany) {
-        Arrays.asList(movementMany.split("")).forEach(this::execCommand);
-    }
+//    public void execCommandsMany(String movementMany) {
+//        Arrays.asList(movementMany.split("")).forEach(this::execCommand);
+//    }
 
     public void validateCommand(String validCommand) throws CommandNotDefinedException {
-        List<String> inputCommands = Arrays.asList(validCommand.split(""));
-        List<String> validCommands = Arrays.asList(("MLR").split(""));
+        String[] inputCommands = validCommand.split("");
+        List<String> validCommands = Arrays.asList((MOVE_COMMAND + TURN_LEFT_COMMAND + TURN_RIGHT_COMMAND).split(""));
 
-        for (int x = 0; x < inputCommands.size(); x++) {
-            if (!(validCommands.contains(inputCommands.get(x)))) {
-                System.out.println(inputCommands.get(x));
-                throw new CommandNotDefinedException("Not a valid Command");
-            }
+        for (String inputCommand : inputCommands) {
+            if (!(validCommands.contains(inputCommand))) {
+                System.out.println(inputCommand);
+                throw new CommandNotDefinedException("Not a valid Command!");
+            } else execCommand(inputCommand);
         }
     }
 
     public void execCommand(String moves) {
-        if (moves.equals("M")) {
+        if (moves.equals(MOVE_COMMAND)) {
             moveRover();
         }
-        if (moves.equals("L")) {
+        if (moves.equals(TURN_LEFT_COMMAND)) {
             turnLeft();
         }
-        if (moves.equals("R")) {
+        if (moves.equals(TURN_RIGHT_COMMAND)) {
             turnRight();
         }
     }
 
     private void turnRight() {
         switch (direction) {
-            case 'N':
-                direction = 'E';
+            case NORTH:
+                direction = EAST;
                 break;
-            case 'S':
-                direction = 'W';
+            case SOUTH:
+                direction = WEST;
                 break;
-            case 'E':
-                direction = 'S';
+            case EAST:
+                direction = SOUTH;
                 break;
-            case 'W':
-                direction = 'N';
+            case WEST:
+                direction = NORTH;
                 break;
         }
     }
 
     private void turnLeft() {
         switch (direction) {
-            case 'N':
-                direction = 'W';
+            case NORTH:
+                direction = WEST;
                 break;
-            case 'S':
-                direction = 'E';
+            case SOUTH:
+                direction = EAST;
                 break;
-            case 'E':
-                direction = 'N';
+            case EAST:
+                direction = NORTH;
                 break;
-            case 'W':
-                direction = 'S';
+            case WEST:
+                direction = SOUTH;
                 break;
         }
     }
 
     private void moveRover() {
         switch (direction) {
-            case 'N':
-                coordY += 1;
+            case NORTH:
+                coordY++;
                 break;
-            case 'S':
-                coordY -= 1;
+            case SOUTH:
+                coordY--;
                 break;
-            case 'E':
-                coordX += 1;
+            case EAST:
+                coordX++;
                 break;
-            case 'W':
-                coordX -= 1;
+            case WEST:
+                coordX--;
                 break;
         }
     }
