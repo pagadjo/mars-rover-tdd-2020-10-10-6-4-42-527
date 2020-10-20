@@ -4,6 +4,6 @@ public interface CommandCenter {
 
     public void turnLeft();
     public void turnRight();
-    public void move();
+    public void moveRover();
 
 }
