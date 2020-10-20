@@ -1,7 +1,6 @@
 package com.afs.tdd;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Null;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class DemoTest {
 
     @Test
-    void should_return_CommandNotDefinedException_when_given_x_0_y_0_dir_N_move_F() {
+    void should_throw_CommandNotDefinedException_when_given_x_0_y_0_dir_N_move_F() {
         //given
         marsRover marsRover = new marsRover(0, 0, 'N');
         //when
         //then
-        assertThrows(CommandNotDefinedException.class, () -> marsRover.validateCommand("ABC"));
+        assertThrows(CommandNotDefinedException.class, () -> marsRover.validateCommand("F"));
     }
 
     @Test
@@ -24,8 +23,8 @@ class DemoTest {
         //when
         marsRover.execCommand("M");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(1, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(1, marsRover.getCoordinateY());
         assertEquals('N', marsRover.getDirection());
     }
 
@@ -36,8 +35,8 @@ class DemoTest {
         //when
         marsRover.execCommand("L");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('W', marsRover.getDirection());
     }
 
@@ -48,8 +47,8 @@ class DemoTest {
         //when
         marsRover.execCommand("R");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('E', marsRover.getDirection());
     }
 
@@ -60,8 +59,8 @@ class DemoTest {
         //when
         marsRover.execCommand("M");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(-1, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(-1, marsRover.getCoordinateY());
         assertEquals('S', marsRover.getDirection());
     }
 
@@ -72,8 +71,8 @@ class DemoTest {
         //when
         marsRover.execCommand("L");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('E', marsRover.getDirection());
     }
 
@@ -84,8 +83,8 @@ class DemoTest {
         //when
         marsRover.execCommand("R");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('W', marsRover.getDirection());
     }
 
@@ -96,8 +95,8 @@ class DemoTest {
         //when
         marsRover.execCommand("M");
         //then
-        assertEquals(1, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(1, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('E', marsRover.getDirection());
     }
 
@@ -108,8 +107,8 @@ class DemoTest {
         //when
         marsRover.execCommand("L");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('N', marsRover.getDirection());
     }
 
@@ -120,8 +119,8 @@ class DemoTest {
         //when
         marsRover.execCommand("R");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('S', marsRover.getDirection());
     }
 
@@ -132,8 +131,8 @@ class DemoTest {
         //when
         marsRover.execCommand("M");
         //then
-        assertEquals(-1, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(-1, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('W', marsRover.getDirection());
     }
 
@@ -144,8 +143,8 @@ class DemoTest {
         //when
         marsRover.execCommand("L");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('S', marsRover.getDirection());
     }
 
@@ -156,8 +155,8 @@ class DemoTest {
         //when
         marsRover.execCommand("R");
         //then
-        assertEquals(0, marsRover.coordinateX());
-        assertEquals(0, marsRover.coordinateY());
+        assertEquals(0, marsRover.getCoordinateX());
+        assertEquals(0, marsRover.getCoordinateY());
         assertEquals('N', marsRover.getDirection());
     }
 
@@ -168,8 +167,8 @@ class DemoTest {
         //when
         marsRover.validateCommand("MLMR");
         //then
-        assertEquals(-1, marsRover.coordinateX());
-        assertEquals(1, marsRover.coordinateY());
+        assertEquals(-1, marsRover.getCoordinateX());
+        assertEquals(1, marsRover.getCoordinateY());
         assertEquals('N', marsRover.getDirection());
     }
 

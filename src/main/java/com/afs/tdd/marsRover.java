@@ -7,45 +7,42 @@ public class marsRover {
     private static final String MOVE_COMMAND = "M";
     private static final String TURN_LEFT_COMMAND = "L";
     private static final String TURN_RIGHT_COMMAND = "R";
-    private final char NORTH = 'N';
-    private final char SOUTH = 'S';
-    private final char EAST = 'E';
-    private final char WEST = 'W';
-    private int coordX;
-    private int coordY;
+    private static final char NORTH = 'N';
+    private static final char SOUTH = 'S';
+    private static final char EAST = 'E';
+    private static final char WEST = 'W';
+    private int coordinateX;
+    private int coordinateY;
     private char direction;
 
-    public marsRover(int coordX, int coordY, char direction) {
-        this.coordX = coordX;
-        this.coordY = coordY;
+    public marsRover(int coordinateX, int coordinateY, char direction) {
+        this.coordinateX = coordinateX;
+        this.coordinateY = coordinateY;
         this.direction = direction;
     }
 
-//    public void execCommandsMany(String movementMany) {
-//        Arrays.asList(movementMany.split("")).forEach(this::execCommand);
-//    }
-
     public void validateCommand(String validCommand) throws CommandNotDefinedException {
         String[] inputCommands = validCommand.split("");
-        List<String> validCommands = Arrays.asList((MOVE_COMMAND + TURN_LEFT_COMMAND + TURN_RIGHT_COMMAND).split(""));
+        List<String> validCommands = Arrays.asList(MOVE_COMMAND, TURN_LEFT_COMMAND, TURN_RIGHT_COMMAND);
 
         for (String inputCommand : inputCommands) {
             if (!(validCommands.contains(inputCommand))) {
-                System.out.println(inputCommand);
-                throw new CommandNotDefinedException("Not a valid Command!");
+                throw new CommandNotDefinedException("Command not valid : " + inputCommand);
             } else execCommand(inputCommand);
         }
     }
 
-    public void execCommand(String moves) {
-        if (moves.equals(MOVE_COMMAND)) {
-            moveRover();
-        }
-        if (moves.equals(TURN_LEFT_COMMAND)) {
-            turnLeft();
-        }
-        if (moves.equals(TURN_RIGHT_COMMAND)) {
-            turnRight();
+    public void execCommand(String commands) {
+        switch (commands) {
+            case MOVE_COMMAND:
+                moveRover();
+                break;
+            case TURN_LEFT_COMMAND:
+                turnLeft();
+                break;
+            case TURN_RIGHT_COMMAND:
+                turnRight();
+                break;
         }
     }
 
@@ -86,26 +83,26 @@ public class marsRover {
     private void moveRover() {
         switch (direction) {
             case NORTH:
-                coordY++;
+                coordinateY++;
                 break;
             case SOUTH:
-                coordY--;
+                coordinateY--;
                 break;
             case EAST:
-                coordX++;
+                coordinateX++;
                 break;
             case WEST:
-                coordX--;
+                coordinateX--;
                 break;
         }
     }
 
-    public int coordinateX() {
-        return coordX;
+    public int getCoordinateX() {
+        return coordinateX;
     }
 
-    public int coordinateY() {
-        return coordY;
+    public int getCoordinateY() {
+        return coordinateY;
     }
 
     public char getDirection() {
