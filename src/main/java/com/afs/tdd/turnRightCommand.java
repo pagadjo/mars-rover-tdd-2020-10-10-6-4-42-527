@@ -2,7 +2,7 @@ package com.afs.tdd;
 
 public class turnRightCommand implements Command {
 
-    CommandCenter commandCenter;
+    private CommandCenter commandCenter;
 
     public turnRightCommand(CommandCenter commandCenter) {
         this.commandCenter = commandCenter;

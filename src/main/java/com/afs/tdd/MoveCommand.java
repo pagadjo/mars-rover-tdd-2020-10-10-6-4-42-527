@@ -1,14 +1,15 @@
 package com.afs.tdd;
 
-public class MoveCommand implements Command {
-    private CommandCenter CommandCenter;
+public class MoveCommand implements Command{
 
-    public MoveCommand(CommandCenter CommandCenter) {
-        this.CommandCenter = CommandCenter;
+    private CommandCenter commandCenter;
+
+    public MoveCommand (CommandCenter commandCenter){
+        this.commandCenter = commandCenter;
     }
 
     @Override
     public void execute() {
-        CommandCenter.moveRover();
+        commandCenter.moveRover();
     }
 }
